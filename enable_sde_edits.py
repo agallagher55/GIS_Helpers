@@ -1,7 +1,10 @@
 import functools
 import arcpy
+from configparser import ConfigParser
 
-WORKSPACE = r'C:\Users\gallaga\AppData\Roaming\ESRI\ArcGISPro\Favorites\Prod_GIS_Halifax.sde'
+parser = ConfigParser()
+parser.read('secrets.ini', encoding="utf-8")
+WORKSPACE = parser.get("DATABASE", "SDE")
 
 
 def enable_sde_edits(function):
