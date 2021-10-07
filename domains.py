@@ -1,3 +1,6 @@
+import arcpy
+
+
 def get_domain_values(feature, field: str):
     """
     :param feature:
