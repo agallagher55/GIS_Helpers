@@ -2,7 +2,7 @@ import arcpy
 import os
 
 from reporter import FieldsReport
-from utils import arcpy_messages
+from arcpy_logger import arcpy_messages
 
 from settings import (
     WORKING_GDB,
