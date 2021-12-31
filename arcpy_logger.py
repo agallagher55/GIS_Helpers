@@ -1,8 +1,6 @@
 import arcpy
 import functools
 
-from settings import WORKING_GDB
-
 
 def arcpy_messages(func):
 
@@ -23,6 +21,8 @@ def arcpy_messages(func):
 
 
 if __name__ == "__main__":
+    from settings import WORKING_GDB
+    
     @arcpy_messages
     def add_field():
         import os
