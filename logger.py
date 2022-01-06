@@ -4,9 +4,10 @@ def get_logger(logging_level: str = "debug", log_name: str = "__name__", log_fil
     :returns logging object
     """
     import logging
+    # TODO: Get user's name
 
     FORMATTER = logging.Formatter(
-        '%(asctime)s - %(levelname)s - FUNC: %(funcName)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S'
+        '%(asctime)s | LOG LEVEL: %(levelname)s | FUNCTION: %(funcName)s | %(message)s', datefmt='%d-%b-%y %H:%M:%S'
     )
 
     levels = {
@@ -30,3 +31,4 @@ def get_logger(logging_level: str = "debug", log_name: str = "__name__", log_fil
 
 if __name__ == "__main__":
     my_logger = get_logger(log_file="collections.log", logging_level="debug")
+    logger.info("Test")
