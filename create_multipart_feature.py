@@ -1,20 +1,18 @@
-"""
-Create Multipart features from within a single feature.
-Group features together based on a field.
-"""
-
 import arcpy
 
 
 def dissolve_geoms(geoms):
-    spatial_reference = geoms[0].spatialReference
-    arr = arcpy.Array()
+    count = 1
 
     for geometry in geoms:
-        for part in geometry:
-            arr.add(part)
+        if count == 1:
+            dissolved_geom = geometry
+        else:
+            dissolved_geom = dissolved_geom.union(geometry)
 
-    return arcpy.Polygon(arr, spatial_reference)
+        count += 1
+
+    return dissolved_geom
 
 
 def merge_features(feature, dissolve_field):
