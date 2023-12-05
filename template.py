@@ -39,6 +39,8 @@ log_formatter = logging.Formatter(
 console_handler.setFormatter(log_formatter)
 logger.addHandler(console_handler)  # print logs to console
 
+# Functions
+
 
 if __name__ == "__main__":
 
