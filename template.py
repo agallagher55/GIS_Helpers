@@ -26,18 +26,30 @@ config.read("E:\\HRM\\Scripts\\Python\\config.ini")
 log_dir = config.get('LOGGING', 'logDir')
 log_dir = os.getcwd()
 
+# File handler
+logFile = log_dir + "\\script_logs.log"
 logFile = log_dir + "\\Building_Permits\\" + str(
     datetime.date.today()) + "_Building_Permits.log"
-logFile = log_dir + "\\script_logs.log"
+file_handler = logging.FileHandler(logFile)
 
-logger = setupLog(logFile)
-
+# Console handler
 console_handler = logging.StreamHandler()
+
+# Configure formatter
 log_formatter = logging.Formatter(
     '%(asctime)s | %(levelname)s | FUNCTION: %(funcName)s | Msgs: %(message)s', datefmt='%d-%b-%y %H:%M:%S'
 )
+file_handler.setFormatter(log_formatter)
 console_handler.setFormatter(log_formatter)
-logger.addHandler(console_handler)  # print logs to console
+
+# Set logging level
+file_handler.setLevel(logging.DEBUG)
+console_handler.setLevel(logging.DEBUG)
+
+# Create logger and add handlers
+logger = logging.getLogger('')
+logger.addHandler(file_handler)  # Write logs to a file
+logger.addHandler(console_handler)  # logger.info logs to the console
 
 # Functions
 
