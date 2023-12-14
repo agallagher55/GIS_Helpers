@@ -51,6 +51,8 @@ logger = logging.getLogger('')
 logger.addHandler(file_handler)  # Write logs to a file
 logger.addHandler(console_handler)  # logger.info logs to the console
 
+# VARIABLES
+
 # Functions
 
 
