@@ -67,6 +67,7 @@ if __name__ == "__main__":
 
     except arcpy.ExecuteError:
         arcpy_msg = arcpy.GetMessages(2)
+        logger.error(arcpy_msg)
 
     except Exception as e:
         print(e)
