@@ -28,8 +28,6 @@ log_dir = os.getcwd()
 
 # File handler
 logFile = log_dir + "\\script_logs.log"
-logFile = log_dir + "\\Building_Permits\\" + str(
-    datetime.date.today()) + "_Building_Permits.log"
 file_handler = logging.FileHandler(logFile)
 
 # Console handler
